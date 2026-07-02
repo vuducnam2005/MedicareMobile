@@ -13,7 +13,7 @@ class EnvConfig {
 
   // Cấu hình thanh toán qua VietQR / SePay ngân hàng
   static const String bankTransferBank = 'Techcombank';
-  static const String bankTransferAccount = '0362183511'; // Hoặc số tài khoản thực tế
+  static const String bankTransferAccount = '20058888866666';
   static const String bankTransferAccountName = 'MedicareDNU';
   static const String bankTransferPrefix = 'MEDDNU';
 
