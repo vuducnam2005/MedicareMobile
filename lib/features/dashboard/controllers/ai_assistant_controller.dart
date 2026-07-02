@@ -62,7 +62,7 @@ class AiAssistantController extends ChangeNotifier {
   final ApiClient _apiClient = ApiClient();
   final _secureStorage = const FlutterSecureStorage();
 
-  static final String _geminiApiKey = EnvConfig.geminiApiKey;
+  static const String _geminiApiKey = EnvConfig.geminiApiKey;
   static const String _geminiModel = EnvConfig.geminiModel;
   static const String _historyStorageKey = 'dogky_chat_messages';
   static const String _bookingStorageKey = 'dogky_active_booking';
