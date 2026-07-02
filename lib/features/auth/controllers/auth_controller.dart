@@ -130,6 +130,7 @@ class AuthController extends ChangeNotifier {
     try {
       // 1. Khởi tạo Google Sign In
       final GoogleSignIn googleSignIn = GoogleSignIn(
+        clientId: EnvConfig.googleClientId,
         serverClientId: EnvConfig.googleClientId,
         scopes: ['email', 'profile'],
       );
