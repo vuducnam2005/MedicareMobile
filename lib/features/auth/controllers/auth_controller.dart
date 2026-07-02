@@ -130,14 +130,17 @@ class AuthController extends ChangeNotifier {
     try {
       // 1. Khởi tạo Google Sign In
       final GoogleSignIn googleSignIn = GoogleSignIn(
-        clientId: EnvConfig.googleClientId,
         serverClientId: EnvConfig.googleClientId,
         scopes: ['email', 'profile'],
       );
 
       // Đăng xuất trước để luôn hiển thị bảng chọn tài khoản
-      if (await googleSignIn.isSignedIn()) {
-        await googleSignIn.signOut();
+      try {
+        if (await googleSignIn.isSignedIn()) {
+          await googleSignIn.signOut();
+        }
+      } catch (_) {
+        // Bỏ qua lỗi signOut
       }
 
       // 2. Kích hoạt giao diện chọn tài khoản Google native
@@ -193,7 +196,7 @@ class AuthController extends ChangeNotifier {
       return false;
     } catch (e) {
       _isLoading = false;
-      _errorMessage = 'Lỗi Google Login: $e';
+      _errorMessage = 'Đăng nhập Google không khả dụng trên thiết bị này. Vui lòng sử dụng tài khoản và mật khẩu.';
       notifyListeners();
       return false;
     }

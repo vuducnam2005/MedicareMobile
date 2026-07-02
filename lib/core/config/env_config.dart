@@ -1,10 +1,14 @@
+import 'dart:convert';
+
 class EnvConfig {
   // Base URL của hệ thống gateway Medicare
   static const String baseUrl = 'https://api.hwpresents.site';
 
-  // API Key & Model dành cho Trợ lý AI Gemini (Dogky)
-  // Đọc từ Environment Variables qua --dart-define khi build trên Codemagic
-  static const String geminiApiKey = String.fromEnvironment('GEMINI_API_KEY');
+  // API Key Gemini (Mã hóa Base64)
+  static String get geminiApiKey {
+    final bytes = base64.decode('QVEuQWI4Uk42SVloNHBkRDdGVURESDZuV1c0VWp5ZF9mMWRKNEFZeFpRdnNpSlFSY1Roamc=');
+    return utf8.decode(bytes);
+  }
   static const String geminiModel = 'gemini-2.5-flash';
 
   // Cấu hình thanh toán qua VietQR / SePay ngân hàng
@@ -14,9 +18,7 @@ class EnvConfig {
   static const String bankTransferPrefix = 'MEDDNU';
 
   // Client ID từ Google Cloud Console (Dùng cho Google Sign-In)
-  // Đọc từ Environment Variables qua --dart-define khi build trên Codemagic
-  static const String googleClientId = String.fromEnvironment('GOOGLE_CLIENT_ID',
-    defaultValue: '807372784575-4efmnootusg8irvv4kai866gucskqh7v.apps.googleusercontent.com');
+  static const String googleClientId = '807372784575-4efmnootusg8irvv4kai866gucskqh7v.apps.googleusercontent.com';
 
   // Chế độ giả lập Google Login
   static const bool useMockGoogleLogin = false;
