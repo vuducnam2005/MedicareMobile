@@ -18,7 +18,8 @@ class EnvConfig {
   static const String bankTransferPrefix = 'MEDDNU';
 
   // Client ID từ Google Cloud Console (Dùng cho Google Sign-In)
-  static const String googleClientId = '807372784575-4efmnootusg8irvv4kai866gucskqh7v.apps.googleusercontent.com';
+  static const String googleClientId = '807372784575-sa6fcvhdh2fh6rcdj2sb3i6n0q6ilqeu.apps.googleusercontent.com'; // iOS Client ID
+  static const String googleServerClientId = '807372784575-4efmnootusg8irvv4kai866gucskqh7v.apps.googleusercontent.com'; // Web Client ID / Server Client ID
 
   // Chế độ giả lập Google Login
   static const bool useMockGoogleLogin = false;
